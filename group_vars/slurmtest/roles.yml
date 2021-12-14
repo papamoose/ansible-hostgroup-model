@@ -1,3 +1,7 @@
 ---
 
 role: headless
+
+#roles_group:
+#- somerole
+#- someotherrole
