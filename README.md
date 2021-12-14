@@ -1,4 +1,4 @@
-# Ansible Quality of Life Improvements
+# Ansible Hostgroup Model
 
 I've been spending a lot more time with Ansible lately I've been unhappy with role organization, how variables get applied, and that groups or hosts cannot assert roles that should be applied to them.
 
