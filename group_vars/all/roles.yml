@@ -16,5 +16,6 @@ roles_desktop:
 - lightdm
 - ubuntu-desktop
 
-
-varoverride: varoverride-groupvars-all
+# Default empty
+roles_group: []
+roles_host: []
