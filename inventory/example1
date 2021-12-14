@@ -1,0 +1,5 @@
+# Because we have default group_vars defined we can just chuck a server
+# into the hostgroup via its group name
+
+[server]
+localhost

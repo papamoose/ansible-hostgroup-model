@@ -1,0 +1,7 @@
+---
+
+- name: lightdm | create file
+  file:
+    path: /tmp/ansible-example/lightdm
+    state: touch
+    mode: '0644'

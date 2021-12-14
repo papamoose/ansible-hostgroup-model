@@ -1,0 +1,5 @@
+---
+
+- import_tasks: etc_hosts.yml
+  tags:
+  - etc-hosts

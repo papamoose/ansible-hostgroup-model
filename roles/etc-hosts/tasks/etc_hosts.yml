@@ -1,0 +1,8 @@
+---
+
+- name: Manage /etc/hosts
+  ansible.builtin.template:
+    src: etc_hosts.j2
+    dest: /tmp/ansible-example/etc-hosts
+    mode: '0644'
+

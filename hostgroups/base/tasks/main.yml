@@ -1,0 +1,18 @@
+---
+
+- debug:
+    msg: "Applying hostgroup base"
+  tags:    
+  - always
+
+- name: include a role from a list of 'roles'
+  ansible.builtin.include_role:
+    name: "{{ r }}"
+    allow_duplicates: no
+    public: yes
+  loop: "{{ (roles_base + roles_group + roles_host) | list  }}"
+  loop_control:
+    loop_var: r
+  tags:
+  - always
+

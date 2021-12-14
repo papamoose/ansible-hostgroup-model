@@ -1,0 +1,7 @@
+---
+
+# This overrides the inventory group
+#role: desktop
+
+roles_host:
+- var-override

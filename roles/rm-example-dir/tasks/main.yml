@@ -1,0 +1,12 @@
+---
+
+
+- file:
+    path: /tmp/ansible-example
+    state: absent
+
+- name: organization base | directory
+  file:
+    path: /tmp/ansible-example
+    state: directory
+    mode: '0755'

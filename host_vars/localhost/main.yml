@@ -1,0 +1,5 @@
+---
+
+
+# Supercedes group_vars/<hostgroup>
+varoverride: host-local

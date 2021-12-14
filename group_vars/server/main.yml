@@ -1,0 +1,4 @@
+---
+
+# supercedes group_vars/all
+varoverride: server

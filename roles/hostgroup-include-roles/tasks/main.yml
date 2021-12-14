@@ -1,0 +1,16 @@
+---
+
+- name: include a role from a list of 'roles'
+  ansible.builtin.include_role:
+    name: "{{ hostgroup | default('base') }}"
+    allow_duplicates: yes
+  tags:
+  - always
+
+# tags: always
+#   This is required to be run every time so that all role tags are realized at runtime.
+#   Without this you cannot use --tags=foo
+
+# allow_duplicates: yes
+#   This is the default. It is possible you want this set to 'no'
+#   The way I use this I set 'allow_duplicates=no' in any organization role.

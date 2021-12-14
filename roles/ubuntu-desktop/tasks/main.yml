@@ -1,0 +1,7 @@
+---
+
+- name: ubuntu-desktop | create file
+  file:
+    path: /tmp/ansible-example/ubuntu-desktop
+    state: touch
+    mode: '0644'

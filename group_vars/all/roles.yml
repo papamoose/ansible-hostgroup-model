@@ -1,0 +1,20 @@
+---
+
+
+# Hostgroups
+roles_base:
+- ssh
+- apt
+
+roles_server:
+- iptables
+
+roles_headless:
+- etc-hosts
+
+roles_desktop:
+- lightdm
+- ubuntu-desktop
+
+
+varoverride: varoverride-groupvars-all
