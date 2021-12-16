@@ -4,14 +4,18 @@
     msg: "Applying hostgroup server"
   tags:    
   - always
+  - server
 
 - name: include a role from a list of 'roles'
   ansible.builtin.include_role:
-    name: "{{ r }}"
+    name: "{{ hg_server_r }}"
     allow_duplicates: no
     public: yes
+    apply:
+      tags:
+      - server
   loop: "{{ (roles_base + roles_server + roles_group + roles_host) | list }}"
   loop_control:
-    loop_var: r
+    loop_var: hg_server_r
   tags:
   - always

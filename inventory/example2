@@ -2,12 +2,12 @@
 # I think this will be the most likey scenerio
 
 [control]
-node1
+#node1
 
 [agents]
 localhost
-node2
-node3
+#node2
+#node3
 
 [control:vars]
 hostgroup=server

@@ -2,8 +2,6 @@
 
 I've been spending a lot more time with Ansible lately I've been unhappy with role organization, how variables get applied, and that groups or hosts cannot assert roles that should be applied to them.
 
-My background is using Puppet in production for 8+ years. Though, I've also used Ansible for a similar time, I've never needed to think about managing more than 30 or machines. Of those I was applying all roles to all machines.
-
 My current deep think has resulted in what I think is a fairly successful attempt at recreating a hierarchical inheritance model, similar to Puppet's hostgroups, which allows a host or a group to define which roles should apply to it, rather than the playbook.
 
 
@@ -260,9 +258,9 @@ localhost                  : ok=8    changed=4    unreachable=0    failed=0    s
 
 After this investigation it has become clear to me that Ansible core has a very specific usage model and if you stray outside of that you won't be able to necessarily bend it to your will and if you do, risk that many roles stop working as intended.
 
-My solution of importing roles based on variable names works like I intended, in that it is not necessary to define all roles that should be applied to a system. Only the extra roles you'd like to apply on top of what the hostgroup provides.
+My solution of importing roles based on variable names works like I intended, in that it is not necessary to define all roles in every playbook.
 
-Not using `hash_behaviour=merge` prevents me from auto merging lists and dictionaries. In my testing I had a working solution which merged a lists of roles with the same name and applied those to the hosts. However, because the order of the application of those roles could not be guaranteed I thought that was just asking for trouble. Especially because Ansible doesn't have a notion that any role could run at any time in any order like Puppet. You must specify all of your dependencies and ordering in the module.
+Not using `hash_behaviour=merge` prevents me from auto merging lists and dictionaries. In my testing I had a working solution which merged a lists of roles with the same name and applied those to the hosts. However, because the order of the application of those roles could not be guaranteed I thought that was just asking for trouble. Especially because Ansible doesn't have a notion that any role could run at any time in any order like Puppet.
 
 
 

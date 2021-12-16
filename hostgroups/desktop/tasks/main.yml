@@ -4,6 +4,7 @@
     msg: "Applying hostgroup desktop"
   tags:
   - always
+  - desktop
 
 #- debug:
 #    msg: "{{ (roles_base + roles_server + roles_headless + roles_desktop + roles_group + roles_host) | list }}"
@@ -11,11 +12,13 @@
 
 - name: include a role from a list of 'roles'
   ansible.builtin.include_role:
-    name: "{{ r }}"
+    name: "{{ hg_desktop_r }}"
     allow_duplicates: no
+    apply:
+      tags:
+      - desktop
   loop: "{{ (roles_base + roles_server + roles_headless + roles_desktop + roles_group + roles_host) | list }}"
   loop_control:
-    loop_var: r
+    loop_var: hg_desktop_r
   tags:
   - always
-
