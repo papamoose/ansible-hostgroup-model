@@ -2,3 +2,5 @@
 
 - debug:
     msg: "role apt"
+  tags:
+  - apt

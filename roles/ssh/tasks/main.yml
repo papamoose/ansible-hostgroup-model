@@ -2,3 +2,5 @@
 
 - debug:
     msg: "role ssh"
+  tags:
+  - ssh
