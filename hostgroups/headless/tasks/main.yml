@@ -2,7 +2,7 @@
 
 - debug:
     msg: "Applying hostgroup headless"
-  tags:    
+  tags:
   - always
   - headless
 
@@ -19,3 +19,12 @@
     loop_var: hg_headless_r
   tags:
   - always
+
+- name: install packages for hostgroup headless
+  ansible.builtin.package:
+    name: "{{ pkg_headless }}"
+  loop: "{{ (pkgs_base + pkgs_server + pkgs_headless + pkgs_group + pkgs_host) | list }}"
+  loop_control:
+    loop_var: pkg_headless
+  tags:
+  - headless

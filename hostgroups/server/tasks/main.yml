@@ -2,7 +2,7 @@
 
 - debug:
     msg: "Applying hostgroup server"
-  tags:    
+  tags:
   - always
   - server
 
@@ -19,3 +19,12 @@
     loop_var: hg_server_r
   tags:
   - always
+
+- name: install packages for hostgroup server
+  ansible.builtin.package:
+    name: "{{ pkg_server }}"
+  loop: "{{ (pkgs_base + pkgs_server + pkgs_group + pkgs_host) | list }}"
+  loop_control:
+    loop_var: pkg_server
+  tags:
+  - server

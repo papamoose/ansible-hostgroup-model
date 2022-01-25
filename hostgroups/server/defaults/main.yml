@@ -1,6 +1,14 @@
 ---
 
-#roles_base: []
-#roles_server: []
-#roles_headless: []
-#roles_desktop: []
+roles_base: []
+roles_server: []
+
+roles_group: []
+roles_host: []
+
+pkgs_base: []
+pkgs_server: []
+
+pkgs_group: []
+pkgs_host: []
+

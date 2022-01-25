@@ -1,0 +1,30 @@
+---
+
+- debug:
+    msg: "Applying hostgroup adhoc"
+  tags:
+  - always
+  - adhoc
+
+- name: include a role from a list of 'roles'
+  ansible.builtin.include_role:
+    name: "{{ hg_adhoc_r }}"
+    allow_duplicates: no
+    public: yes
+    apply:
+      tags:
+      - adhoc
+  loop: "{{ (roles_group + roles_host) | list  }}"
+  loop_control:
+    loop_var: hg_adhoc_r
+  tags:
+  - always
+
+- name: install packages for hostgroup adhoc
+  ansible.builtin.package:
+    name: "{{ pkg_adhoc }}"
+  loop: "{{ (pkgs_group + pkgs_host) | list }}"
+  loop_control:
+    loop_var: pkg_adhoc
+  tags:
+  - adhoc

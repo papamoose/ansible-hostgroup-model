@@ -1,11 +1,7 @@
 ---
 
-roles_base: []
-
 roles_group: []
 roles_host: []
-
-pkgs_base: []
 
 pkgs_group: []
 pkgs_host: []

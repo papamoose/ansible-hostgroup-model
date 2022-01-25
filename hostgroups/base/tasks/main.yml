@@ -2,7 +2,7 @@
 
 - debug:
     msg: "Applying hostgroup base"
-  tags:    
+  tags:
   - always
   - base
 
@@ -19,3 +19,12 @@
     loop_var: hg_base_r
   tags:
   - always
+
+- name: install packages for hostgroup base
+  ansible.builtin.package:
+    name: "{{ pkg_base }}"
+  loop: "{{ (pkgs_base + pkgs_group + pkgs_host) | list }}"
+  loop_control:
+    loop_var: pkg_base
+  tags:
+  - base

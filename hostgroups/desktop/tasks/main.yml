@@ -6,10 +6,6 @@
   - always
   - desktop
 
-#- debug:
-#    msg: "{{ (roles_base + roles_server + roles_headless + roles_desktop + roles_group + roles_host) | list }}"
-#  tags: always
-
 - name: include a role from a list of 'roles'
   ansible.builtin.include_role:
     name: "{{ hg_desktop_r }}"
@@ -22,3 +18,12 @@
     loop_var: hg_desktop_r
   tags:
   - always
+
+- name: install packages for hostgroup desktop
+  ansible.builtin.package:
+    name: "{{ pkg_desktop }}"
+  loop: "{{ (pkgs_base + pkgs_server + pkgs_headless + pkgs_desktop + pkgs_group + pkgs_host) | list }}"
+  loop_control:
+    loop_var: pkg_desktop
+  tags:
+  - desktop
