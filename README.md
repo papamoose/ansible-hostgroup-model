@@ -1,8 +1,10 @@
 # Ansible Hostgroup Model
 
-I've been spending a lot more time with Ansible lately I've been unhappy with role organization, how variables get applied, and that groups or hosts cannot assert roles that should be applied to them.
+I've been spending a lot more time with Ansible lately I've been unhappy with role organization, how variables get applied, and that groups or hosts cannot assert roles that should be applied to them. 
 
 My current deep think has resulted in what I think is a fairly successful attempt at recreating a hierarchical inheritance model, similar to Puppet's hostgroups, which allows a host or a group to define which roles should apply to it, rather than the playbook.
+
+This model isn't meant to work for everyone, nor is it intended to. It it mearly a[nother] method of organzing your site.
 
 
 ## Role organization
